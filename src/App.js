@@ -1,12 +1,13 @@
 
 import './App.css';
-import Loading from './components/Pages/Loading/Loading';
+import Login from './components/Pages/Login/Login';
+
 
 function App() {
   return (
     <div className="App">
-      <h1 className="text-6xl" >HomePage</h1>
-      <Loading />
+      {/* <h1 className="text-6xl" >HomePage</h1> */}
+      <Login />
     </div>
   );
 }
