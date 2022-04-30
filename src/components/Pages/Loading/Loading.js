@@ -2,10 +2,23 @@ import React from 'react';
 
 const Loading = () => {
   return (
-    <div className="w-100 d-flex justify-content-center align-items-center">
-      <div className="spinner-border text-success" role="status">
-        <span className="sr-only"></span>
-      </div>
+    <div>
+      <button type="button" className="bg-indigo-500 " disabled>
+        <svg
+          className="		animation: spin 1s linear infinite;
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}"
+          viewBox="0 0 100 10"
+        ></svg>
+        Processing...
+      </button>
     </div>
   );
 };
