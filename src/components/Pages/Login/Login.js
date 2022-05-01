@@ -107,11 +107,16 @@ const Login = () => {
               </button>
             </div>
           </form>
-          <Link to="/register" className="w-full mt-3 ">
-            <span className="text-xl tracking-wide text-center  text-purple-600">
-              Create new account
-            </span>
-          </Link>
+          <div className="">
+            <p className="text-lg">
+              Don't have an account?
+              <Link to="/login" className="w-full mt-3 ">
+                <span className="text-xl tracking-wide text-center ml-2 text-purple-600">
+                  SignUp
+                </span>
+              </Link>
+            </p>
+          </div>
         </div>
       </div>
     </div>
