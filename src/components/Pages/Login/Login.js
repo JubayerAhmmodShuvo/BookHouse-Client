@@ -1,11 +1,74 @@
-import React from 'react';
-import { Link, useNavigate } from "react-router-dom";
-
-import logo from '../../images/logobook1.png'
-
+import React, { useState } from 'react';
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import {
+  useSignInWithEmailAndPassword,
+  useSignInWithGithub,
+  useSignInWithGoogle,
+} from "react-firebase-hooks/auth";
+import logo from '../../images/logobook1.png';
 import './Login.css'
+import auth from '../../../Firebase.init';
+import { ToastContainer } from 'react-toastify';
 
 const Login = () => {
+
+    const [userInfo, setUserInfo] = useState({
+      email: "",
+      password: "",
+    });
+    const [errors, setErrors] = useState({
+      email: "",
+      password: "",
+    });
+
+     const navigate = useNavigate();
+     const location = useLocation();
+
+   const [signInWithEmailAndPassword, user, loading, hookError] =
+     useSignInWithEmailAndPassword(auth);
+
+     const [signInWithGoogle, googleUser] = useSignInWithGoogle(auth);
+     const [signInWithGithub, githubUser] = useSignInWithGithub(auth);
+
+     const from = location.state?.from?.pathname || "/";
+
+     if (user || googleUser || githubUser) {
+       navigate(from, { replace: true });
+     }
+
+       const handleEmailBlur = (e) => {
+         const emailRegex = /\S+@\S+\.\S+/;
+         const validEmail = emailRegex.test(e.target.value);
+
+         if (validEmail) {
+           setUserInfo({ ...userInfo, email: e.target.value });
+           setErrors({ ...errors, email: "" });
+         } else {
+           setErrors({ ...errors, email: "Invalid email" });
+           setUserInfo({ ...userInfo, email: "" });
+         }
+       };
+       const handlePasswordBlur = (e) => {
+         const passwordRegex = /.{6,}/;
+         const validPassword = passwordRegex.test(e.target.value);
+
+         if (validPassword) {
+           setUserInfo({ ...userInfo, password: e.target.value });
+           setErrors({ ...errors, password: "" });
+         } else {
+           setErrors({ ...errors, password: "Please enter correct password" });
+           setUserInfo({ ...userInfo, password: "" });
+         }
+       };
+       const handleUserLogin = (event) => {
+         event.preventDefault();
+
+         signInWithEmailAndPassword(userInfo.email, userInfo.password);
+       };
+  
+
+
+
   return (
     <div className=" h-screen m-auto">
       <div className=" bg-white bg-opacity-70 backdrop-blur-xl lg:block"></div>
@@ -25,7 +88,10 @@ const Login = () => {
           </div>
 
           <div className="mt-12 grid gap-6 sm:grid-cols-2">
-            <button className="py-3 px-6 rounded-xl bg-blue-50 hover:bg-blue-100 focus:bg-blue-100 active:bg-blue-200">
+            <button
+              onClick={() => signInWithGoogle()}
+              className="py-3 px-6 rounded-xl bg-blue-50 hover:bg-blue-100 focus:bg-blue-100 active:bg-blue-200"
+            >
               <div className="flex gap-4 justify-center">
                 <svg
                   width="24px"
@@ -56,7 +122,10 @@ const Login = () => {
                 </span>
               </div>
             </button>
-            <button className="py-3 px-6 rounded-xl bg-gray-900 transition hover:bg-gray-800 active:bg-gray-600 focus:bg-gray-700">
+            <button
+              onClick={() => signInWithGithub()}
+              className="py-3 px-6 rounded-xl bg-gray-900 transition hover:bg-gray-800 active:bg-gray-600 focus:bg-gray-700"
+            >
               <div className="flex gap-4 items-center justify-center text-white">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -79,30 +148,45 @@ const Login = () => {
             </span>
           </div>
 
-          <form className="space-y-6 py-6">
+          <form onSubmit={handleUserLogin} className="space-y-6 py-6">
             <div>
               <input
+                onBlur={handleEmailBlur}
                 type="email"
                 placeholder="Your Email"
                 className="w-full py-3 px-6 ring-1 ring-gray-300 rounded-xl placeholder-gray-600 bg-transparent transition disabled:ring-gray-200 disabled:bg-gray-100 disabled:placeholder-gray-400 invalid:ring-red-400 focus:invalid:outline-none"
               />
+              {errors?.email && (
+                <p className="alert alert-danger mt-3">{errors.email}</p>
+              )}
             </div>
 
             <div className="flex flex-col items-end">
               <input
+                onBlur={handlePasswordBlur}
                 type="password"
                 placeholder="Password"
                 className="w-full py-3 px-6 ring-1 ring-gray-300 rounded-xl placeholder-gray-600 bg-transparent transition disabled:ring-gray-200 disabled:bg-gray-100 disabled:placeholder-gray-400 invalid:ring-red-400 focus:invalid:outline-none"
               />
-              <Link to="/forgotpass" className="w-max mt-3 ">
+              {errors?.password && (
+                <p className="alert alert-danger mt-3">{errors?.password}</p>
+              )}
+            </div>
+            <div className="  flex flex-col items-end">
+              <Link to="/forgotpass" className="w-max mt-3 text-end ">
                 <span className="text-lg tracking-wide text-red-600">
                   Forgot password ?
                 </span>
               </Link>
             </div>
 
-            <div>
-              <button className="w-full px-6 py-3 rounded-xl bg-sky-500 transition hover:bg-sky-600 focus:bg-sky-600 active:bg-sky-800">
+            <ToastContainer />
+
+            <div className="flex flex-col items-center">
+              <button
+                type="submit"
+                className="w-1/2 px-6 py-3 rounded-xl bg-sky-500 transition hover:bg-sky-600 focus:bg-sky-600 active:bg-sky-800"
+              >
                 <span className="font-semibold text-white text-lg">Login</span>
               </button>
             </div>
@@ -110,7 +194,7 @@ const Login = () => {
           <div className="">
             <p className="text-lg">
               Don't have an account?
-              <Link to="/login" className="w-full mt-3 ">
+              <Link to="/signup" className="w-full mt-3 ">
                 <span className="text-xl tracking-wide text-center ml-2 text-purple-600">
                   SignUp
                 </span>
