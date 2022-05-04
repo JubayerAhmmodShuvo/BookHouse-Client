@@ -9,6 +9,7 @@ import logo from '../../images/logobook1.png';
 import './Login.css'
 import auth from '../../../Firebase.init';
 import { ToastContainer } from 'react-toastify';
+import Loading from '../Loading/Loading';
 
 const Login = () => {
 
@@ -24,17 +25,20 @@ const Login = () => {
      const navigate = useNavigate();
      const location = useLocation();
 
-   const [signInWithEmailAndPassword, user, loading, hookError] =
+   const [signInWithEmailAndPassword, user, loading] =
      useSignInWithEmailAndPassword(auth);
 
-     const [signInWithGoogle, googleUser] = useSignInWithGoogle(auth);
-     const [signInWithGithub, githubUser] = useSignInWithGithub(auth);
+     const [signInWithGoogle, googleUser,loading1] = useSignInWithGoogle(auth);
+     const [signInWithGithub, githubUser, loading2] = useSignInWithGithub(auth);
 
      const from = location.state?.from?.pathname || "/";
 
      if (user || googleUser || githubUser) {
        navigate(from, { replace: true });
-     }
+  }
+  if (loading || loading1 || loading2) {
+    return <Loading />;
+  }
 
        const handleEmailBlur = (e) => {
          const emailRegex = /\S+@\S+\.\S+/;
@@ -60,8 +64,8 @@ const Login = () => {
            setUserInfo({ ...userInfo, password: "" });
          }
        };
-       const handleUserLogin = (event) => {
-         event.preventDefault();
+       const handleUserLogin = (e) => {
+         e.preventDefault();
 
          signInWithEmailAndPassword(userInfo.email, userInfo.password);
        };

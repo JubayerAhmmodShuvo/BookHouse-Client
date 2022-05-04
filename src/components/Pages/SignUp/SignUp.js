@@ -15,11 +15,11 @@ const SignUp = () => {
    const [confirmPassword, setConfirmPassword] = useState("");
    const [error2, setError] = useState("");
    const navigate = useNavigate();
-   const [signInWithGoogle, googleUser] = useSignInWithGoogle(auth);
-   const [signInWithGithub, githubUser] = useSignInWithGithub(auth);
+   const [signInWithGoogle, googleUser, loading1] = useSignInWithGoogle(auth);
+   const [signInWithGithub, githubUser,loading2] = useSignInWithGithub(auth);
 
-   if (loading) {
-     return <Loading></Loading>   ;
+   if (loading || loading1 || loading2) {
+     return <Loading></Loading>;
    }
 
     if (user || googleUser || githubUser) {
