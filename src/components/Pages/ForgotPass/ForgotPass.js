@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
-import { useSendPasswordResetEmail } from "react-firebase-hooks/auth";
-import auth from "../../../Firebase.init";
+import React, { useEffect, useState } from 'react';
+import { useSendPasswordResetEmail } from 'react-firebase-hooks/auth';
+import auth from '../../../Firebase.init';
 import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+ import "react-toastify/dist/ReactToastify.css";
+
 
 const ForgotPass = () => {
   const [email, setEmail] = useState("");
@@ -18,9 +19,9 @@ const ForgotPass = () => {
       toast("Enter an Email address");
     }
   }, [error]);
-
+  
   return (
-    <div className="mx-auto w-52 mt-20 ">
+    <div className="mx-auto w-96 py-32 mt-20 " >
       <input
         className=" w-96 p-3  border-2 border-gray-400 rounded-lg focus:outline-none focus:border-red-500"
         type="email"
@@ -29,9 +30,9 @@ const ForgotPass = () => {
         placeholder="Enter Email"
       />
       <br />
-      <ToastContainer />
+     <ToastContainer />
       <button
-        className="btn btn-outline-primary my-4 w-96 "
+        className="btn btn-outline-primary my-4 w-96  "
         onClick={async () => {
           await sendPasswordResetEmail(email);
           setEmail(" ");
