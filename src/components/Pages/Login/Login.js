@@ -1,77 +1,74 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
   useSignInWithEmailAndPassword,
   useSignInWithGithub,
   useSignInWithGoogle,
 } from "react-firebase-hooks/auth";
-import logo from '../../images/logobook1.png';
-import './Login.css'
-import auth from '../../../Firebase.init';
-import { ToastContainer } from 'react-toastify';
-import Loading from '../Loading/Loading';
+import logo from "../../images/logobook1.png";
+import "./Login.css";
+import auth from "../../../Firebase.init";
+import { ToastContainer } from "react-toastify";
+import Loading from "../Loading/Loading";
+import "react-toastify/dist/ReactToastify.css";
 
 const Login = () => {
+  const [userInfo, setUserInfo] = useState({
+    email: "",
+    password: "",
+  });
+  const [errors, setErrors] = useState({
+    email: "",
+    password: "",
+  });
 
-    const [userInfo, setUserInfo] = useState({
-      email: "",
-      password: "",
-    });
-    const [errors, setErrors] = useState({
-      email: "",
-      password: "",
-    });
+  const navigate = useNavigate();
+  const location = useLocation();
 
-     const navigate = useNavigate();
-     const location = useLocation();
+  const [signInWithEmailAndPassword, user, loading] =
+    useSignInWithEmailAndPassword(auth);
 
-   const [signInWithEmailAndPassword, user, loading] =
-     useSignInWithEmailAndPassword(auth);
+  const [signInWithGoogle, googleUser] = useSignInWithGoogle(auth);
+  const [signInWithGithub, githubUser] = useSignInWithGithub(auth);
 
-     const [signInWithGoogle, googleUser] = useSignInWithGoogle(auth);
-     const [signInWithGithub, githubUser] = useSignInWithGithub(auth);
+  const from = location.state?.from?.pathname || "/";
 
-     const from = location.state?.from?.pathname || "/";
-
-     if (user || googleUser || githubUser) {
-       navigate(from, { replace: true });
+  if (user || googleUser || githubUser) {
+    navigate(from, { replace: true });
   }
   if (loading) {
     return <Loading />;
   }
 
-       const handleEmailBlur = (e) => {
-         const emailRegex = /\S+@\S+\.\S+/;
-         const validEmail = emailRegex.test(e.target.value);
+  const handleEmailBlur = (e) => {
+    const emailRegex = /\S+@\S+\.\S+/;
+    const validEmail = emailRegex.test(e.target.value);
 
-         if (validEmail) {
-           setUserInfo({ ...userInfo, email: e.target.value });
-           setErrors({ ...errors, email: "" });
-         } else {
-           setErrors({ ...errors, email: "Invalid email" });
-           setUserInfo({ ...userInfo, email: "" });
-         }
-       };
-       const handlePasswordBlur = (e) => {
-         const passwordRegex = /.{6,}/;
-         const validPassword = passwordRegex.test(e.target.value);
+    if (validEmail) {
+      setUserInfo({ ...userInfo, email: e.target.value });
+      setErrors({ ...errors, email: "" });
+    } else {
+      setErrors({ ...errors, email: "Invalid email" });
+      setUserInfo({ ...userInfo, email: "" });
+    }
+  };
+  const handlePasswordBlur = (e) => {
+    const passwordRegex = /.{6,}/;
+    const validPassword = passwordRegex.test(e.target.value);
 
-         if (validPassword) {
-           setUserInfo({ ...userInfo, password: e.target.value });
-           setErrors({ ...errors, password: "" });
-         } else {
-           setErrors({ ...errors, password: "Please enter correct password" });
-           setUserInfo({ ...userInfo, password: "" });
-         }
-       };
-       const handleUserLogin = (e) => {
-         e.preventDefault();
+    if (validPassword) {
+      setUserInfo({ ...userInfo, password: e.target.value });
+      setErrors({ ...errors, password: "" });
+    } else {
+      setErrors({ ...errors, password: "Please enter correct password" });
+      setUserInfo({ ...userInfo, password: "" });
+    }
+  };
+  const handleUserLogin = (e) => {
+    e.preventDefault();
 
-         signInWithEmailAndPassword(userInfo.email, userInfo.password);
-       };
-  
-
-
+    signInWithEmailAndPassword(userInfo.email, userInfo.password);
+  };
 
   return (
     <div className=" h-screen m-auto">
