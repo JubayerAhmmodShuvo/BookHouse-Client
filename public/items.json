@@ -1,6 +1,6 @@
 [
   {
-    "id": "624abae41bc155c2da5bfc0a",
+    
     "book": "To Kill a Mockingbird",
     "price": 12.99,
     "quantity": 77,
@@ -9,7 +9,7 @@
     "img": "https://cdn.britannica.com/21/182021-050-666DB6B1/book-cover-To-Kill-a-Mockingbird-many-1961.jpg?q=60"
   },
   {
-    "id": "624abae47b782e17e9eec942",
+    
     "book": "Jane Eyre",
 
     "price": 14.32,
@@ -19,7 +19,7 @@
     "img": "https://images-na.ssl-images-amazon.com/images/I/51poYFyvtWL._SY291_BO1,204,203,200_QL40_FMwebp_.jpg"
   },
   {
-    "id": "624abae4131091d09107e742",
+    
     "book": "The Great Gatsby",
 
     "price": 11.22,
@@ -29,7 +29,7 @@
     "img": "https://images-na.ssl-images-amazon.com/images/I/419uSIPte-L._SX322_BO1,204,203,200_.jpg"
   },
   {
-    "id": "624abae41ab0fb7874b41987",
+   
     "book": "Mrs. Dalloway",
 
     "price": 9.99,
@@ -39,7 +39,7 @@
     "img": "https://images-na.ssl-images-amazon.com/images/I/51TcOcL0pbL._SY291_BO1,204,203,200_QL40_FMwebp_.jpg"
   },
   {
-    "id": "624abae42c94ced88d60ffc9",
+    
     "book": "Beloved",
 
     "price": 11.99,
@@ -49,7 +49,7 @@
     "img": "https://images-na.ssl-images-amazon.com/images/I/41Rdzbiqh7L._SX322_BO1,204,203,200_.jpg"
   },
   {
-    "id": "624abae4be7e565920d47ae9",
+    
     "book": "The Invisible Man",
 
     "price": 12.50,

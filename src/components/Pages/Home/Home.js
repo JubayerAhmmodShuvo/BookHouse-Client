@@ -35,7 +35,7 @@ const Home = () => {
         <h1 className="text-4xl font-extrabold text-center my-8">Items</h1>
         <div className="mt-12  lg:mt-24 grid lg:grid-cols-3 gap-10 md:grid-cols-2 lg:mx-14  mb-2 ">
           {items.slice(0, 6).map((item) => (
-            <SingleItem key={item.id} item={item} />
+            <SingleItem key={item._id} item={item} />
           ))}
         </div>
       </div>
