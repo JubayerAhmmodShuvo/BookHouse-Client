@@ -28,15 +28,15 @@ const Login = () => {
    const [signInWithEmailAndPassword, user, loading] =
      useSignInWithEmailAndPassword(auth);
 
-     const [signInWithGoogle, googleUser,loading1] = useSignInWithGoogle(auth);
-     const [signInWithGithub, githubUser, loading2] = useSignInWithGithub(auth);
+     const [signInWithGoogle, googleUser] = useSignInWithGoogle(auth);
+     const [signInWithGithub, githubUser] = useSignInWithGithub(auth);
 
      const from = location.state?.from?.pathname || "/";
 
      if (user || googleUser || githubUser) {
        navigate(from, { replace: true });
   }
-  if (loading || loading1 || loading2) {
+  if (loading) {
     return <Loading />;
   }
 
