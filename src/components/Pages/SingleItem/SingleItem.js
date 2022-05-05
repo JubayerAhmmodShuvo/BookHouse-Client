@@ -1,10 +1,15 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const SingleItem = ({ item}) => {
-  const { description,book, img, price,supplier,quantity } = item;
+  const { _id, description, book, img, price, supplier, quantity } = item;
+   const navigate=useNavigate();
+  const navigateToBookDetail = id => {
+    navigate(`/books/${id}`);
+  }
   return (
     <div>
-      <div className="card border rounded h-full   	 ">
+      <div className="card border rounded h-full   w-96 mx-auto   	 ">
         <img
           src={img}
           alt="stew"
@@ -22,8 +27,8 @@ const SingleItem = ({ item}) => {
           <span className="block text-gray-500 text-sm p-1">
             Quantity : {quantity}
           </span>
-        </div>
-        <button className="btn btn-primary rounded-none ">Update</button>
+        </div  >
+        <button onClick={()=>navigateToBookDetail(_id)} className="btn btn-primary rounded-none  ">Update</button>
       </div>
     </div>
   );
