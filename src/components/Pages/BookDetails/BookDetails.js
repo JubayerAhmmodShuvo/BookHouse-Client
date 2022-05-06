@@ -6,11 +6,6 @@ const BookDetails = () => {
   const { bookId } = useParams();
   const [book, setBook] = UseBookDetails(bookId);
  
-      
-    
-    
-  
-
 
 
   
