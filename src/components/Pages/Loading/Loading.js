@@ -3,8 +3,8 @@ import { Spinner } from "react-bootstrap";
 
 const Loading = () => {
   return (
-    <div className="container  ">
-      <Spinner animation="grow" variant="info" />
+    <div className="  grid my-80  ">
+      <Spinner className="  mx-auto" animation="grow" variant="info" />
     </div>
   );
 };

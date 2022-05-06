@@ -7,10 +7,11 @@ import {
 } from "react-firebase-hooks/auth";
 import logo from "../../images/logobook1.png";
 import "./Login.css";
-import auth from "../../../Firebase.init";
+
 import { ToastContainer } from "react-toastify";
 import Loading from "../Loading/Loading";
 import "react-toastify/dist/ReactToastify.css";
+import auth from "../../../firebase.init";
 
 const Login = () => {
   const [userInfo, setUserInfo] = useState({
@@ -71,7 +72,7 @@ const Login = () => {
   };
 
   return (
-    <div className=" h-screen m-auto">
+    <div className=" h-full mb-24">
       <div className=" bg-white bg-opacity-70 backdrop-blur-xl lg:block"></div>
       <div className="  mx-auto lg:w-5/12">
         <div className="m-auto py-12 px-6 sm:p-20 xl:w-10/12">

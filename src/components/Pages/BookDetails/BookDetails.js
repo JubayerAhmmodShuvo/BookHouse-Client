@@ -4,7 +4,16 @@ import UseBookDetails from '../hooks/UseBookDetails';
 
 const BookDetails = () => {
   const { bookId } = useParams();
-  const [book,setBook] = UseBookDetails(bookId);
+  const [book, setBook] = UseBookDetails(bookId);
+ 
+      
+    
+    
+  
+
+
+
+  
   return (
     <div>
       <div className="grid lg:grid-cols-2 h-full w-full">
@@ -22,11 +31,13 @@ const BookDetails = () => {
             <span className="font-bold">Description</span> : {book.description}
           </p>
           <p>
-            <span className="font-bold">Price</span> : {book.price}
+            <span className="font-bold">Price</span> : ${book.price}
           </p>
           <p>
             <span className="font-bold">Quantity </span> : {book.quantity}
           </p>
+
+          <button className="btn btn-primary">Delivered</button>
         </div>
       </div>
     </div>

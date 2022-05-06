@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
 import { useCreateUserWithEmailAndPassword, useSignInWithGithub, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { Link, useNavigate } from "react-router-dom";
-import auth from '../../../Firebase.init';
-import Loading from '../Loading/Loading';
 
+import Loading from '../Loading/Loading';
+import "react-toastify/dist/ReactToastify.css";
 import logo from "../../images/logobook1.png";
+import { ToastContainer,toast } from "react-toastify";
+
+import "react-toastify/dist/ReactToastify.css";
+import auth from '../../../firebase.init';
 
 const SignUp = () => {
 
@@ -13,7 +17,7 @@ const SignUp = () => {
    const [createUserWithEmailAndPassword, user, loading] =
      useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
    const [confirmPassword, setConfirmPassword] = useState("");
-   const [error2, setError] = useState("");
+   const [error, setError] = useState("");
    const navigate = useNavigate();
    const [signInWithGoogle, googleUser] = useSignInWithGoogle(auth);
    const [signInWithGithub, githubUser] = useSignInWithGithub(auth);
@@ -39,7 +43,7 @@ const SignUp = () => {
       const handleRegister = (e) => {
         e.preventDefault();
         if (password !== confirmPassword) {
-          setError("Passwords do not match");
+          toast("Passwords do not match");
           return;
         }
         if (password.length < 6) {
@@ -54,7 +58,7 @@ const SignUp = () => {
         setConfirmPassword(" ");
       };
   return (
-    <div className=" h-screen m-auto">
+    <div className=" h-full mb-24">
       <div className=" bg-white bg-opacity-70 backdrop-blur-xl lg:block"></div>
       <div className="  mx-auto lg:w-5/12">
         <div className="m-auto py-12 px-6 sm:p-20 xl:w-10/12">
@@ -158,7 +162,7 @@ const SignUp = () => {
                 className="w-full py-3 px-6 ring-1 ring-gray-300 rounded-xl placeholder-gray-600 bg-transparent transition disabled:ring-gray-200 disabled:bg-gray-100 disabled:placeholder-gray-400 invalid:ring-red-400 focus:invalid:outline-none"
               />
             </div>
-            <p style={{ color: "red" }}>{error2}</p>
+            <p style={{ color: "red" }}>{error}</p>
 
             <div className="flex flex-col items-center">
               <button className="w-1/2  px-6 py-3 rounded-xl bg-sky-500 transition hover:bg-sky-600 focus:bg-sky-600 active:bg-sky-800">
@@ -167,6 +171,7 @@ const SignUp = () => {
                 </span>
               </button>
             </div>
+            <ToastContainer />
           </form>
           <div className="">
             <p className="text-lg">

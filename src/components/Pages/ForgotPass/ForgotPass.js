@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSendPasswordResetEmail } from 'react-firebase-hooks/auth';
-import auth from '../../../Firebase.init';
+import auth from "../../../firebase.init";
+
 import { toast, ToastContainer } from "react-toastify";
  import "react-toastify/dist/ReactToastify.css";
 
