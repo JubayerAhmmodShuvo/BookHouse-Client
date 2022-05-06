@@ -8,15 +8,16 @@ const BookDetails = () => {
 
   const updateQuantity = (e) => {
     const quantity = book.quantity - 1;
+    const sold=book.sold+1;
     const url = `http://localhost:5000/books/${bookId}`;
     fetch(url, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ quantity: quantity }),
+      body: JSON.stringify({ quantity: quantity, sold: sold }),
     }).then(() => {
-      setBook({ ...book, quantity: quantity });
+      setBook({ ...book, quantity: quantity,sold:sold });
     });
   };
 
@@ -42,17 +43,20 @@ const BookDetails = () => {
           <p>
             <span className="font-bold">Quantity </span> : {book.quantity}
           </p>
+          <p>
+            <span className="font-bold">Sold </span> : {book.sold}
+          </p>
 
           {book.quantity === 0 ? (
             <button
               onClick={() => updateQuantity(book.quantity)}
               className="btn btn-danger my-4 disabled"
             >
-             Sold
+             SoldOut
             </button>
           ) : (
             <button
-              onClick={() => updateQuantity(book.quantity)}
+              onClick={() => updateQuantity(book.quantity, book.sold)}
               className="btn btn-primary my-4"
             >
               Delivered

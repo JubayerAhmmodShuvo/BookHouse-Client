@@ -1,61 +1,61 @@
 [
   {
-    
     "book": "To Kill a Mockingbird",
     "price": 12.99,
     "quantity": 77,
     "supplier": "Selma Le",
-    "description": "This product is the best. You can't go wrong with this one. ",
+    "sold": 0,
+    "description": "To Kill a Mockingbird is a coming-of-age story about a girl named Scout. Scout and her brother Jem try to understand and relate to their father, Atticus, who is a lawyer charged with defending a black man falsely accused of raping a white woman. ",
     "img": "https://cdn.britannica.com/21/182021-050-666DB6B1/book-cover-To-Kill-a-Mockingbird-many-1961.jpg?q=60"
   },
   {
-    
     "book": "Jane Eyre",
 
     "price": 14.32,
     "quantity": 46,
     "supplier": "William Faulkner",
-    "description": "Best sdhgfi ueughiughMacBook ever had iu uiuiu . ",
+    "sold": 0,
+    "description": "Jane Eyre is a coming of age novel that is a story of a girl's quest for equality and happiness. A common theme that recurs throughout the novel is the importance of independence ",
     "img": "https://images-na.ssl-images-amazon.com/images/I/51poYFyvtWL._SY291_BO1,204,203,200_QL40_FMwebp_.jpg"
   },
   {
-    
     "book": "The Great Gatsby",
 
     "price": 11.22,
     "quantity": 73,
     "supplier": "Mattie Carroll",
-    "description": "The development work is a slice of a cake with machine. ",
+    "sold": 0,
+    "description": "The Great Gatsby, third novel by F. Scott Fitzgerald, published in 1925 by Charles Scribner's Sons. Set in Jazz Age New York, the novel tells the tragic story of Jay Gatsby, a self-made millionaire, and his pursuit of Daisy Buchanan, a wealthy young woman whom he loved in his youth.",
     "img": "https://images-na.ssl-images-amazon.com/images/I/419uSIPte-L._SX322_BO1,204,203,200_.jpg"
   },
   {
-   
     "book": "Mrs. Dalloway",
 
     "price": 9.99,
     "quantity": 66,
     "supplier": "Clemons Santiago",
-    "description": "Anyone with creative mind can go far with analysis with this beast. ",
+    "sold": 0,
+    "description": "The basic theme of the novel is the life of a single personality, Mrs. Dalloway. Affecting and affected by others with whom she comes into contact. The action of the novel relates to a single day in the month of June, on which she is proposing to give a party in the evening.",
     "img": "https://images-na.ssl-images-amazon.com/images/I/51TcOcL0pbL._SY291_BO1,204,203,200_QL40_FMwebp_.jpg"
   },
   {
-    
     "book": "Beloved",
 
     "price": 11.99,
     "quantity": 23,
     "supplier": "Mcintyre Hendrix",
-    "description": "Editing is my hobby and this machine can edit things faster that anyone can think ",
+    "sold": 0,
+    "description": "Beloved, novel by Toni Morrison, published in 1987 and winner of the 1988 Pulitzer Prize for fiction. The work examines the destructive legacy of slavery as it chronicles the life of a Black woman named Sethe, from her pre-Civil War days as a slave in Kentucky to her time in Cincinnati, Ohio, in 1873.",
     "img": "https://images-na.ssl-images-amazon.com/images/I/41Rdzbiqh7L._SX322_BO1,204,203,200_.jpg"
   },
   {
-    
     "book": "The Invisible Man",
 
-    "price": 12.50,
+    "price": 12.5,
     "quantity": 43,
     "supplier": "Candice Klein",
-    "description": "I always try to find the best of all product and nothing is as good at this machine.",
+    "sold": 0,
+    "description": "Invisible Man is about the process of overcoming deceptions and illusions to reach truth. (One of the most important truths in the book is that the narrator is invisible to those around him.",
     "img": "https://images-na.ssl-images-amazon.com/images/I/31NTAUidroS._SY291_BO1,204,203,200_QL40_FMwebp_.jpg"
   }
 ]

@@ -27,8 +27,13 @@ const SingleItem = ({ item}) => {
           <span className="block text-gray-500 text-sm p-1">
             Quantity : {quantity}
           </span>
-        </div  >
-        <button onClick={()=>navigateToBookDetail(_id)} className="btn btn-primary rounded-none  ">Update</button>
+          <button
+            onClick={() => navigateToBookDetail(_id)}
+            className="btn btn-primary rounded grid mt-3 w-50 mx-auto "
+          >
+            Update
+          </button>
+        </div>
       </div>
     </div>
   );
