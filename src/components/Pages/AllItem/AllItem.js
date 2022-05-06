@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ToastContainer,toast } from "react-toastify";
 import Loading from "../Loading/Loading";
 import "react-toastify/dist/ReactToastify.css";
+import UserItems from '../hooks/UserItems';
 
 const AllItem = ({ item }) => {
+  const [loading, setLoading] = useState(false);
+const   [items, setItems]=UserItems();
   
   const { _id, description, book, img, price, supplier, quantity } = item;
 
@@ -16,12 +19,14 @@ const AllItem = ({ item }) => {
       setTimeout(() => {
         window.location.reload();
       }
-        , 1000);
+      , 1000);
       
       
     });
   }
-
+  if (loading) {
+    return <Loading />;
+  }
     
 
   

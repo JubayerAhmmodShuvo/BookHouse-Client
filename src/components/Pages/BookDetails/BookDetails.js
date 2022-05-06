@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import UseBookDetails from "../hooks/UseBookDetails";
 
 const BookDetails = () => {
@@ -82,7 +82,7 @@ const BookDetails = () => {
             </button>
           )}
 
-          <form className="flex " onSubmit={reStockQuantity} >
+          <form className="flex " onSubmit={reStockQuantity}>
             <input
               className="border-2  mr-4 rounded border-purple-500 p-2"
               type="number"
@@ -93,6 +93,9 @@ const BookDetails = () => {
           </form>
         </div>
       </div>
+      <Link className=" grid w-52 mx-auto my-12" to="/manageitems">
+        <button className="btn btn-primary">Manage Inventory</button>
+      </Link>
     </div>
   );
 };
