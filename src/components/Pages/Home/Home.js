@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import book from "../../images/book.png";
 import UserItems from '../hooks/UserItems';
 import SingleItem from '../SingleItem/SingleItem';
@@ -32,12 +33,17 @@ const Home = () => {
       {/* Inventory section */}
 
       <div className=" mb-20">
-        <h1 className="text-4xl font-extrabold text-center my-8">Items</h1>
+        <h1 className="text-4xl font-extrabold text-center my-8  ">
+          <span className="border-b-2 p-2 border-sky-700">Inventory</span>
+        </h1>
         <div className="mt-12  lg:mt-24 grid lg:grid-cols-3 gap-10 md:grid-cols-2 lg:mx-14  mb-2 ">
           {items.slice(0, 6).map((item) => (
             <SingleItem key={item._id} item={item} />
           ))}
         </div>
+        <Link className=" grid w-52 mx-auto my-12" to="/manageitems">
+          <button className="btn btn-primary">Manage Inventory</button>
+        </Link>
       </div>
     </div>
   );
