@@ -9,7 +9,7 @@ const SingleItem = ({ item}) => {
   }
   return (
     <div>
-      <div className="card border rounded h-full   w-96 mx-auto   	 ">
+      <div className="card border rounded h-full   w-full mx-auto   	 ">
         <img
           src={img}
           alt="stew"
