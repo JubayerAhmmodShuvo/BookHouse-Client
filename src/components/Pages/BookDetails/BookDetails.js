@@ -21,9 +21,28 @@ const BookDetails = () => {
     });
   };
 
+  const reStockQuantity = (e) => { 
+    e.preventDefault();
+    const quantity = parseInt(book.quantity);
+    const reStock = parseInt(e.target.number.value);
+    const total = quantity + reStock;
+    const url = `http://localhost:5000/books/${bookId}`;
+    fetch(url, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ quantity: total }),
+    }).then(() => {
+      setBook({ ...book, quantity: total });
+      e.target.reset();
+
+    })
+  }
+
   return (
     <div>
-      <div className="grid lg:grid-cols-2 h-full w-full">
+      <div className="grid lg:grid-cols-2 h-full w-full mb-16">
         <div className="mx-auto my-28">
           <img className=" w-96 h-96" src={book.img} alt="" />
         </div>
@@ -50,18 +69,28 @@ const BookDetails = () => {
           {book.quantity === 0 ? (
             <button
               onClick={() => updateQuantity(book.quantity)}
-              className="btn btn-danger my-4 disabled"
+              className="btn btn-outline-danger my-4 disabled"
             >
-             SoldOut
+              SoldOut
             </button>
           ) : (
             <button
               onClick={() => updateQuantity(book.quantity, book.sold)}
-              className="btn btn-primary my-4"
+              className="btn btn-outline-primary my-4"
             >
               Delivered
             </button>
           )}
+
+          <form className="flex " onSubmit={reStockQuantity} >
+            <input
+              className="border-2  mr-4 rounded border-purple-500 p-2"
+              type="number"
+              name="number"
+              id="number"
+            />
+            <button className="btn btn-outline-primary p-2">Restock</button>
+          </form>
         </div>
       </div>
     </div>
