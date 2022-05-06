@@ -43,12 +43,21 @@ const BookDetails = () => {
             <span className="font-bold">Quantity </span> : {book.quantity}
           </p>
 
-          <button
-            onClick={() => updateQuantity(book.quantity)}
-            className="btn btn-primary my-4"
-          >
-            Delivered
-          </button>
+          {book.quantity === 0 ? (
+            <button
+              onClick={() => updateQuantity(book.quantity)}
+              className="btn btn-danger my-4 disabled"
+            >
+             Sold
+            </button>
+          ) : (
+            <button
+              onClick={() => updateQuantity(book.quantity)}
+              className="btn btn-primary my-4"
+            >
+              Delivered
+            </button>
+          )}
         </div>
       </div>
     </div>
