@@ -1,6 +1,7 @@
 import React from 'react';
 import UserItems from '../hooks/UserItems';
 import AllItem from '../AllItem/AllItem';
+import { Link } from "react-router-dom";
 
 const ManageItems = () => {
   const [items, setItems] = UserItems();
@@ -20,7 +21,12 @@ const ManageItems = () => {
     }
     return (
       <div className="">
-        <div className="mt-12  lg:mt-24 grid lg:grid-cols-3 gap-10 md:grid-cols-2 lg:mx-14  mb-2 ">
+        <div className="grid mx-auto w-52 mt-10">
+          <Link to="/additems">
+            <button className="btn btn-primary ">Add New Item</button>
+          </Link>
+        </div>
+        <div className="mt-8  lg:mt-24 grid lg:grid-cols-3 gap-10 md:grid-cols-2 lg:mx-14  mb-2 ">
           {items.map((item) => (
             <AllItem
               key={item._id}
@@ -29,7 +35,6 @@ const ManageItems = () => {
             />
           ))}
         </div>
-
       </div>
     );
 };
