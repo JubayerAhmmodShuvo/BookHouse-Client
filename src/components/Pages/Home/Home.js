@@ -1,10 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import book from "../../images/book.png";
-import About from "../About/About";
+
 import Delivery from "../Delivery/Delivery";
 import UserItems from "../hooks/UserItems";
 import SingleItem from "../SingleItem/SingleItem";
+import WhyUs from "../WhyUs/WhyUs";
 
 const Home = () => {
   const [items, setItems] = UserItems();
@@ -54,7 +55,7 @@ const Home = () => {
       <Delivery />
       {/* Extra -2 */}
 
-      <About />
+      <WhyUs />
     </div>
   );
 };

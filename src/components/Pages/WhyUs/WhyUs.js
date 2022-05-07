@@ -5,7 +5,7 @@ import pln from "../../images/pln.png";
 import stra from "../../images/strategy.png";
 
 
-const About = () => {
+const WhyUs = () => {
   return (
     <div className="mb-20">
       <div className="container mt-6 bg-violet-50 py-14">
@@ -41,4 +41,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default WhyUs;
