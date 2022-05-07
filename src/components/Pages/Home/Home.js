@@ -45,6 +45,8 @@ const Home = () => {
           <button className="btn btn-primary">Manage Inventory</button>
         </Link>
       </div>
+      {/* Extra -1 */}
+      
     </div>
   );
 };

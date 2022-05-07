@@ -13,6 +13,7 @@ import NotFound from './components/Pages/NotFound/NotFound';
 import ManageItems from './components/Pages/ManageItems/ManageItems';
 import MyItems from './components/Pages/MyItems/MyItems';
 import AddItems from './components/Pages/AddItems/AddItems';
+import RequireAuth from './components/Pages/RequireAuth/RequireAuth';
 
 
 
@@ -29,7 +30,14 @@ function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/forgotpass" element={<ForgotPass />} />
         <Route path="/blogs" element={<Blogs />} />
-        <Route path="/books/:bookId" element={<BookDetails />} />
+        <Route
+          path="/books/:bookId"
+          element={
+            <RequireAuth>
+              <BookDetails />
+            </RequireAuth>
+          }
+        />
         <Route path="/manageitems" element={<ManageItems />} />
         <Route path="/additems" element={<AddItems />} />
         <Route path="/myitems" element={<MyItems />} />

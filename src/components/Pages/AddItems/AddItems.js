@@ -3,11 +3,14 @@ import { useForm } from "react-hook-form";
 import { ToastContainer, toast } from "react-toastify";
 import Loading from "../Loading/Loading";
 import "react-toastify/dist/ReactToastify.css";
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../../firebase.init';
 
 
 const AddItems = () => {
   const { register, handleSubmit } = useForm();
-  const [loading, setLoading] = useState(false);
+  const [user] = useAuthState(auth);
+ 
   const onSubmit = (data) => {
     const url = `http://localhost:5000/books`;
     fetch(url, {
@@ -21,11 +24,11 @@ const AddItems = () => {
       window.location.reload();
     }
     );
+    
+
 
   }
-  if (loading) {
-    return <Loading />;
-  }
+  
   return (
     <div className="my-16">
       <h1 className="text-2xl font-bold text-center my-10 ">
@@ -45,6 +48,14 @@ const AddItems = () => {
           placeholder="Supplier Name"
           {...register("supplier", { required: true, maxLength: 50 })}
         />
+        <input
+          className="border-2 border-sky-700 rounded p-2 "
+          placeholder="Email"
+          {...register("email", { required: true, maxLength: 50 })}
+          value={user?.email}
+         readOnly
+        />
+       
         <textarea
           className="border-2 border-sky-700 rounded p-2 "
           placeholder="Description"
@@ -67,8 +78,8 @@ const AddItems = () => {
           placeholder="Sold"
           type="number"
           {...register("sold")}
-          disabled value={0}
-         
+          disabled
+          value={0}
         />
         <input
           className="border-2 border-sky-700 rounded p-2 "
