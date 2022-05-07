@@ -5,9 +5,9 @@ import Man from "../../images/33.jpeg";
 
 const Delivery = () => {
   return (
-    <div className="mb-24" >
+    <div className="mb-24">
       <h1 className="text-3xl font-extrabold text-center my-12 ">
-        <span className="border-b-2 p-2 border-sky-700 text-cyan-500">
+        <span className="border-b-2 p-2 border-sky-700 text-indigo-900">
           Our Delivery Service
         </span>
       </h1>
@@ -58,7 +58,8 @@ const Delivery = () => {
           <p className="text-justify p-6 text-lg">
             We are now living in an era where we can easily reach any corner of
             the city any time with our delivery man and stock items for business
-            if one wants do some business. We can help you with our delivery man in the city to stock books.
+            if one wants do some business. We can help you with our delivery man
+            in the city to stock books.
           </p>
         </div>
       </div>
