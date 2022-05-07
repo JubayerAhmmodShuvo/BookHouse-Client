@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import book from "../../images/book.png";
+import About from '../About/About';
 import Delivery from '../Delivery/Delivery';
 import UserItems from '../hooks/UserItems';
 import SingleItem from '../SingleItem/SingleItem';
@@ -35,7 +36,7 @@ const Home = () => {
 
       <div className=" mb-20">
         <h1 className="text-4xl font-extrabold text-center my-8  ">
-          <span className="border-b-2 p-2 border-sky-700">Inventory</span>
+          <span className="border-b-2 p-2 border-sky-700 text-indigo-900">Inventory</span>
         </h1>
         <div className="mt-12  lg:mt-24 grid lg:grid-cols-3 gap-10 md:grid-cols-2 lg:mx-14  mb-2 ">
           {items.slice(0, 6).map((item) => (
@@ -48,6 +49,9 @@ const Home = () => {
       </div>
       {/* Extra -1 */}
       <Delivery />
+      {/* Extra -2 */}
+
+      <About />
 
     </div>
   );
