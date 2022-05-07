@@ -5,10 +5,15 @@ import book from "../../images/book.png";
 import Delivery from "../Delivery/Delivery";
 import UserItems from "../hooks/UserItems";
 import SingleItem from "../SingleItem/SingleItem";
+import Loading from "../Loading/Loading";
 import WhyUs from "../WhyUs/WhyUs";
 
 const Home = () => {
   const [items, setItems] = UserItems();
+  if (!items.length) { 
+    return <Loading />
+  }
+
   return (
     <div className="">
       {/* Banner section */}

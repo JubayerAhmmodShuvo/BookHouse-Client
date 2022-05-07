@@ -2,9 +2,13 @@ import React from 'react';
 import UserItems from '../hooks/UserItems';
 import AllItem from '../AllItem/AllItem';
 import { Link } from "react-router-dom";
+import Loading from '../Loading/Loading';
 
 const ManageItems = () => {
   const [items, setItems] = UserItems();
+  if (!items.length) {
+    return <Loading />
+  }
     const handleDeleteBtn = id => {
         const confirm = window.confirm('Want to delete this item');
         if (confirm) {
