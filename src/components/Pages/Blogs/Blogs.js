@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const Blogs = () => {
   return (
@@ -92,23 +92,24 @@ const Blogs = () => {
           Question 4: What is the purpose of jwt and how does it work?
         </h1>
         <p className=" text-lg mb-6 text-justify">
-          JWT stands for “JSON web token” it is an open standard (RFC 7519)
-          that defines a compact and self-contained way for securely
-          transmitting information between parties as a JSON object. JWT is
-          simply a token that is written in JSON format. It is really safe to
-          use because it can be signed in using a secret (with the HMAC
-          algorithm) or a public/private key pair using RSA or ECDSA. Instead of
-          storing information on the server after authentication, JWT creates a
-          JSON web token and encodes, sterilizes, and adds a signature with a
-          secret key that cannot be tampered with. This key is then sent back to
-          the browser. Each time a request is sent, it verifies and sends the
+          JWT stands for “JSON web token” it is an open standard (RFC 7519) that
+          defines a compact and self-contained way for securely transmitting
+          information between parties as a JSON object. JWT is simply a token
+          that is written in JSON format. It is really safe to use because it
+          can be signed in using a secret (with the HMAC algorithm) or a
+          public/private key pair using RSA or ECDSA. Instead of storing
+          information on the server after authentication, JWT creates a JSON web
+          token and encodes, sterilizes, and adds a signature with a secret key
+          that cannot be tampered with. This key is then sent back to the
+          browser. Each time a request is sent, it verifies and sends the
           response back. The main difference here is that the user’s state is
           not stored on the server, as the state is instead stored inside the
           token on the client-side. JWT also allows us to use the same JSON Web
           Token in multiple servers that you can run without running into
           problems where one server has a certain session, and the other server
           doesn’t. When a server receives a JWT, it can guarantee the data it
-          contains can be trusted because it's signed by the source.
+          contains can be trusted because it's signed by the source. JWT can be
+          stored in local storage, cookies, or memory.
         </p>
       </div>
     </div>
