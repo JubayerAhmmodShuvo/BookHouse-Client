@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import book from "../../images/book.png";
+import Delivery from '../Delivery/Delivery';
 import UserItems from '../hooks/UserItems';
 import SingleItem from '../SingleItem/SingleItem';
 
@@ -46,7 +47,8 @@ const Home = () => {
         </Link>
       </div>
       {/* Extra -1 */}
-      
+      <Delivery />
+
     </div>
   );
 };
