@@ -12,7 +12,7 @@ const About = () => {
         <p className="mt-8 text-2xl font-semibold mb-4 font-serif   text-center ">
           WE WORK HARD, WE PLAY HARD
         </p>
-        <h1 className="text-center text-4xl font-bold italic font-serif  mb-16 ">
+        <h1 className="text-center text-4xl font-bold  font-serif  mb-16 ">
           WHY WORK WITH US <span className="text-red-600">?</span>
         </h1>
 
