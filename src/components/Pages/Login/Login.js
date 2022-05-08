@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
   useSignInWithEmailAndPassword,
@@ -12,6 +12,7 @@ import { ToastContainer } from "react-toastify";
 import Loading from "../Loading/Loading";
 import "react-toastify/dist/ReactToastify.css";
 import auth from "../../../firebase.init";
+import axios from "axios";
 
 const Login = () => {
   const [userInfo, setUserInfo] = useState({
@@ -22,6 +23,8 @@ const Login = () => {
     email: "",
     password: "",
   });
+  const emailRef = useRef("");
+  const passwordRef = useRef("");
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -34,7 +37,7 @@ const Login = () => {
 
   const from = location.state?.from?.pathname || "/";
 
-  if (user || googleUser || githubUser) {
+  if ( googleUser || githubUser ) {
     navigate(from, { replace: true });
   }
   if (loading) {
@@ -65,11 +68,20 @@ const Login = () => {
       setUserInfo({ ...userInfo, password: "" });
     }
   };
-  const handleUserLogin = (e) => {
+  const handleUserLogin = async (e) => {
     e.preventDefault();
+    const email = emailRef.current.value;
+    const password = passwordRef.current.value;
+    
 
-    signInWithEmailAndPassword(userInfo.email, userInfo.password);
+    await signInWithEmailAndPassword(userInfo.email, userInfo.password);
+    const { data } = await axios.post("http://localhost:5000/login", { email });
+    localStorage.setItem("user", data.accessToken);
+    navigate(from, { replace: true });
   };
+  if (user) {
+    //navigate(from, { replace: true });
+  }
 
   return (
     <div className=" h-full mb-24">
@@ -154,6 +166,7 @@ const Login = () => {
             <div>
               <input
                 onBlur={handleEmailBlur}
+                ref={emailRef}
                 type="email"
                 placeholder="Your Email"
                 className="w-full py-3 px-6 ring-1 ring-gray-300 rounded-xl placeholder-gray-600 bg-transparent transition disabled:ring-gray-200 disabled:bg-gray-100 disabled:placeholder-gray-400 invalid:ring-red-400 focus:invalid:outline-none"
@@ -166,6 +179,7 @@ const Login = () => {
             <div className="flex flex-col items-end">
               <input
                 onBlur={handlePasswordBlur}
+                ref={passwordRef}
                 type="password"
                 placeholder="Password"
                 className="w-full py-3 px-6 ring-1 ring-gray-300 rounded-xl placeholder-gray-600 bg-transparent transition disabled:ring-gray-200 disabled:bg-gray-100 disabled:placeholder-gray-400 invalid:ring-red-400 focus:invalid:outline-none"
