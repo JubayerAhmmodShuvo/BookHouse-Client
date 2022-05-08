@@ -42,9 +42,9 @@ const BookDetails = () => {
 
   return (
     <div>
-      <div className="grid lg:grid-cols-2 h-full w-full mb-16">
+      <div className="grid lg:grid-cols-2 h-full w-screen mb-16 container">
         <div className="mx-auto my-28">
-          <img className=" w-96 h-96" src={book.img} alt="" />
+          <img className=" lg:w-full sm:w-screen h-96" src={book.img} alt="" />
         </div>
         <div className="mx-auto my-auto text-lg space-y-4 px-4 text-justify">
           <h1 className="font-bold text-2xl">

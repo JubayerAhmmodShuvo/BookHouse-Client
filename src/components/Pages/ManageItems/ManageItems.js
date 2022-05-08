@@ -25,9 +25,9 @@ const ManageItems = () => {
     }
     return (
       <div className="">
-        <div className="grid mx-auto w-52 mt-10">
+        <div className="flex align-center justify-center mt-10">
           <Link to="/additems">
-            <button className="btn btn-primary ">Add New Item</button>
+            <button className="btn btn-primary mx-auto ">Add New Item</button>
           </Link>
         </div>
         <div className="mt-8  lg:mt-24 grid lg:grid-cols-3 gap-10 md:grid-cols-2 lg:mx-14  mb-2 ">
