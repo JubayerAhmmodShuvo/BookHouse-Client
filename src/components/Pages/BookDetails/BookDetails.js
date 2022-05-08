@@ -9,7 +9,7 @@ const BookDetails = () => {
   const updateQuantity = (e) => {
     const quantity = book.quantity - 1;
     const sold=book.sold+1;
-    const url = `http://localhost:5000/books/${bookId}`;
+    const url = `https://quiet-harbor-16613.herokuapp.com/books/${bookId}`;
     fetch(url, {
       method: "PUT",
       headers: {
@@ -26,7 +26,7 @@ const BookDetails = () => {
     const quantity = parseInt(book.quantity);
     const reStock = parseInt(e.target.number.value);
     const total = quantity + reStock;
-    const url = `http://localhost:5000/books/${bookId}`;
+    const url = `https://quiet-harbor-16613.herokuapp.com/books/${bookId}`;
     fetch(url, {
       method: "PUT",
       headers: {

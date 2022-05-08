@@ -5,14 +5,16 @@ import Loading from "../Loading/Loading";
 import "react-toastify/dist/ReactToastify.css";
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
+import { useNavigate } from 'react-router-dom';
 
 
 const AddItems = () => {
   const { register, handleSubmit } = useForm();
   const [user] = useAuthState(auth);
+  const navigate= useNavigate();
  
   const onSubmit = (data) => {
-    const url = `http://localhost:5000/books`;
+    const url = `https://quiet-harbor-16613.herokuapp.com/books`;
     fetch(url, {
       method: "POST",
       headers: {
@@ -21,12 +23,11 @@ const AddItems = () => {
       body: JSON.stringify(data),
     }).then(() => {
       toast.success("Item Added Successfully");
-      window.location.reload();
+      
+     navigate("/myitems");
     }
     );
-    
-
-
+ 
   }
   
   return (

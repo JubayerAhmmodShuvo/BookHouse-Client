@@ -1,8 +1,6 @@
 import axios from 'axios';
-import { signOut } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
 import AllItem from '../AllItem/AllItem';
 import Loading from '../Loading/Loading';
@@ -11,7 +9,6 @@ import Loading from '../Loading/Loading';
 const MyItems = () => {
   const [user] = useAuthState(auth);
   const [items, setItem] = useState([]);
-  const navigate = useNavigate();
   
   
   
@@ -21,23 +18,15 @@ const MyItems = () => {
     const getItems = async () => { 
       const email = user?.email;
       
-      const url = `http://localhost:5000/book?email=${email}`; 
-      try {
-        const { data } = await axios.get(url, {
-          headers: {
-            authorization: `Bearer ${localStorage.getItem("user")}`,
-          },
-        });
+      const url = `https://quiet-harbor-16613.herokuapp.com/book?email=${email}`; 
+      const { data } = await axios.get(url, {
+        headers: {
+          authorization: `Bearer ${localStorage.getItem('user')}`
+        }
+      });
+    
 
-        setItem(data);
-      } catch (error) {
-        console.log(error);
-        if (error.response.status === 401 || error.response.status === 403)
-        {
-          signOut(auth);
-          navigate("/login");
-          }
-      }
+      setItem(data);
      
       
       
@@ -52,7 +41,7 @@ const MyItems = () => {
   const handleDeleteBtn = (id) => {
     const confirm = window.confirm("Want to delete this item");
     if (confirm) {
-      const url = `http://localhost:5000/books/${id}`;
+      const url = `https://quiet-harbor-16613.herokuapp.com/books/${id}`;
       fetch(url, {
         method: "DELETE",
       })
