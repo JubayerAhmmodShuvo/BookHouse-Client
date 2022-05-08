@@ -6,6 +6,7 @@ Live Link: [Book-House](https://book-house-f63f7.web.app/).
 [Server Side](https://github.com/ProgrammingHeroWC4/warehouse-management-server-side-JubayerAhmmodShuvo)
 </br>
 [Heroku](https://quiet-harbor-16613.herokuapp.com/)
+[Items](https://quiet-harbor-16613.herokuapp.com/books)
 
 
 ## Functionalities
