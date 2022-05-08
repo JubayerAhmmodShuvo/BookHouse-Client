@@ -58,7 +58,7 @@ const Header = () => {
                 className="btn btn-primary text-white text-xl  mx-4"
                 onClick={handleSignOut}
               >
-                Sign out
+                SignOut
               </button>
             ) : (
               <Nav.Link
