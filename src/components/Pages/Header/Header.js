@@ -20,7 +20,7 @@ const Header = () => {
         collapseOnSelect
         expand="lg"
         sticky="top"
-        className=" bg-violet-100 text-lg font-bold  "
+        className=" bg-violet-100 text-lg font-bold   "
         variant="light"
       >
         <Navbar.Brand as={Link} to="/">
@@ -34,6 +34,9 @@ const Header = () => {
             </NavLink>
             <NavLink as={Link} to="/blogs">
               Blogs
+            </NavLink>
+            <NavLink as={Link} to="/contact">
+              Contact Us
             </NavLink>
           </Nav>
           <Nav className="mr-10">

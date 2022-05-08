@@ -42,11 +42,11 @@ const BookDetails = () => {
 
   return (
     <div>
-      <div className="grid lg:grid-cols-2 h-full w-screen mb-16 container">
+      <div className="grid lg:grid-cols-2 sm:grid-cols-1  mb-16 container">
         <div className="mx-auto my-28">
           <img className=" lg:w-full sm:w-screen h-96" src={book.img} alt="" />
         </div>
-        <div className="mx-auto my-auto text-lg space-y-4 px-4 text-justify">
+        <div className="mx-auto my-auto text-lg space-y-4  text-justify lg:p-2 sm:p-6">
           <h1 className="font-bold text-2xl">
             Book Name : <span className="text-emerald-900">{book.book}</span>
           </h1>
@@ -54,7 +54,7 @@ const BookDetails = () => {
             <span className="font-bold">Supplier</span> : {book.supplier}
           </p>
           <p>
-            <span className="font-bold">Description</span> : {book.description}
+            <span className="font-bold ">Description</span> : {book.description}
           </p>
           <p>
             <span className="font-bold">Price</span> : ${book.price}
@@ -84,7 +84,7 @@ const BookDetails = () => {
 
           <form className="flex " onSubmit={reStockQuantity}>
             <input
-              className="border-2  mr-4 rounded border-purple-500 p-2"
+              className="border-2  mr-4 rounded border-purple-500 focus:border-indigo-500 p-2"
               type="number"
               name="number"
               id="number"

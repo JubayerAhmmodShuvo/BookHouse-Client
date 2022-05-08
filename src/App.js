@@ -14,6 +14,7 @@ import ManageItems from './components/Pages/ManageItems/ManageItems';
 import MyItems from './components/Pages/MyItems/MyItems';
 import AddItems from './components/Pages/AddItems/AddItems';
 import RequireAuth from './components/Pages/RequireAuth/RequireAuth';
+import Contact from './components/Pages/Contact/Contact';
 
 
 
@@ -30,6 +31,7 @@ function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/forgotpass" element={<ForgotPass />} />
         <Route path="/blogs" element={<Blogs />} />
+        <Route path="/contact" element={<Contact />} />
         <Route
           path="/books/:bookId"
           element={
