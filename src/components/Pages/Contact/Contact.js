@@ -21,7 +21,7 @@ const Contact = () => {
             <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">
               Contact Us
             </h1>
-            <p className="lg:w-2/3 mx-auto leading-relaxed text-base">
+            <p className="lg:w-2/3 mx-auto leading-relaxed text-base ">
               No matter where are you from, feel free to to reach us. We will response soon.
             </p>
           </div>
@@ -79,9 +79,9 @@ const Contact = () => {
                 <div className="p-2 w-full">
                   <button
                     
-                    className="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg"
+                    className="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-700 rounded text-lg"
                   >
-                    Button
+                    Contact Us 
                   </button>
                 </div>
               </div>
