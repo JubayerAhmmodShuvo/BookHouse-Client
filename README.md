@@ -7,3 +7,17 @@ Live Link: [Book-House](https://book-house-f63f7.web.app/).
 </br>
 [Heroku](https://quiet-harbor-16613.herokuapp.com/)
 
+</br>
+</br>
+</br>
+
+## Functionalities
+
+*In the home page you can see the banner, items and other informations .
+* 
+* 
+* 
+* 
+* 
+* 
+
