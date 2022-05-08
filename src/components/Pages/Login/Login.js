@@ -35,10 +35,13 @@ const Login = () => {
   const [signInWithGoogle, googleUser] = useSignInWithGoogle(auth);
   const [signInWithGithub, githubUser] = useSignInWithGithub(auth);
 
-  const from = location.state?.from?.pathname || "/";
+  const from = location?.state?.from?.pathname || "/";
+  if (googleUser || githubUser) {
+    navigate(from, {replace: true});
+  }
 
-  if ( googleUser || githubUser ) {
-    navigate(from, { replace: true });
+  if (user  ) {
+   // navigate(from, { replace: true });
   }
   if (loading) {
     return <Loading />;
@@ -78,10 +81,9 @@ const Login = () => {
     const { data } = await axios.post("http://localhost:5000/login", { email });
     localStorage.setItem("user", data.accessToken);
     navigate(from, { replace: true });
+   
   };
-  if (user) {
-    //navigate(from, { replace: true });
-  }
+ 
 
   return (
     <div className=" h-full mb-24">
